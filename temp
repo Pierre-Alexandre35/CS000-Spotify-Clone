@@ -1,0 +1,3 @@
+ .noAccountLink, .alreadyAccountLink{
+     pointer-events: none;
+ }

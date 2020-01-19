@@ -1,6 +1,6 @@
 <?php
 
-function sanitizeFormUsername($input){
+function sanitizeFormGeneral($input){
     $input = strip_tags($input);
     $input = str_replace(" ", "", $input);
     return $input;
@@ -15,19 +15,16 @@ function sanitizeFormString($input){
 
 function sanitizeFormPassword($input){
     $input = strip_tags($input);
-    $input = ucfirst(strtolower($input));
     return $input;
 
-
-    
 }
 
 if(isset($_POST['registerButton'])){
-    $username = sanitizeFormUsername($_POST['username']);
+    $username = sanitizeFormGeneral($_POST['username']);
     $firstName = sanitizeFormString($_POST['firstName']);
     $lastName = sanitizeFormString($_POST['lastName']);
-    $email = sanitizeFormString($_POST['email']);
-    $emailConfirm = sanitizeFormString($_POST['emailConfirm']);
+    $email = sanitizeFormGeneral($_POST['email']);
+    $emailConfirm = sanitizeFormGeneral($_POST['emailConfirm']);
     $password = sanitizeFormPassword($_POST['password']);
     $passwordConfirm = sanitizeFormPassword($_POST['passwordConfirm']); 
     
@@ -35,6 +32,7 @@ if(isset($_POST['registerButton'])){
     $wasSuccessfull = $currentAccount->register($username, $firstName, $lastName, $email, $emailConfirm, $password, $passwordConfirm);
 
     if($wasSuccessfull){
+        $_SESSION['userLoggedIn'] = $username;
         header("Location: index.php");
     } 
 

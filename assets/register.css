@@ -1,0 +1,120 @@
+
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+#background{
+    background-color: #000;
+    background-image: url("./images/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#login-container *{
+    color:#fff;
+    font-family: "Helvetica Neue", "Arial";
+    font-weight: normal;
+    line-height: 1em;
+    box-sizing: border-box;
+}
+
+#login-container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1024px;
+    position: relative;
+}
+
+
+
+#input-container{
+    width: 400px;
+    padding:45px;
+    float: left;
+    border-right: 1px solid #999;
+}
+
+#input-container h2{
+    text-align:center;
+}
+
+
+#input-container input[type="text"],
+#input-container input[type="email"],
+#input-container input[type="password"]{
+    display: block;
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid #fff;
+    height: 28px;
+    line-height: 28px;
+    width: 100%;
+    font-size: 14px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+}
+
+::placeholder { 
+    color:    #fff;
+ }
+
+
+ #input-container label{
+    color:#a0a0a0;
+    font-size: 14px;
+    margin-top: 14px;
+ }
+ 
+ #input-container button{
+     background-color: transparent;
+     border: 2px solid white;
+     border-radius: 250px;
+     display: block;
+     font-size: 15px;
+     letter-spacing: 1px;
+     margin:20px auto;
+     height: 44px;
+     width: 100%;
+ }
+
+ #input-container button:hover{
+    cursor: pointer;
+
+ }
+
+ .hasAccountCheck{
+    text-align: center;
+
+ }
+
+ .hasAccountCheck span{
+     font-weight: bold;
+     font-size: 14px;
+ }
+
+ .hasAccountCheck a{
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+#registerForm{
+    display: none;
+}

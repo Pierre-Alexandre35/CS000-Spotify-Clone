@@ -118,3 +118,46 @@ input:-webkit-autofill:active {
 #registerForm{
     display: none;
 }
+
+
+#loginText{
+    padding: 45px;
+    display: table-cell;
+}
+
+
+#loginText h1{
+    color: #07d159;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#loginText h2{
+    margin: 35px auto;
+}
+
+#loginText ul{
+    padding:0;
+}
+
+#loginText li{
+    font-size: 20px;
+    padding: 10px;
+    list-style-image: url("./images/icons/check.png");
+    margin-left: 25px;
+}
+
+
+#input-container .error-message{
+    color: #07d159;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
+.logo{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}

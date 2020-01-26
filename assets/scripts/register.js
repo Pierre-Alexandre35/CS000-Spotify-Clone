@@ -20,8 +20,19 @@ document.addEventListener("DOMContentLoaded", function(){
         registerForm.style.display="none";
     });
 
-    registerButton.addEventListener("mouseover", e =>{
-        console.log("booba");
+    registerButton.addEventListener("click", e =>{
+
 
     });
 });
+
+
+const showOne = () => {
+    loginForm.style.display="block";
+        registerForm.style.display="none";
+}
+
+const showTwo = () => {
+    loginForm.style.display="none";
+        registerForm.style.display="block";
+}

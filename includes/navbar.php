@@ -5,7 +5,8 @@
                     </a>
                     <div class="group group-top">
                         <div class="nav-item">
-                            <a href="search.php" class="nav-item-link">Search <img class="search-icon" src="./assets/images/icons/search.png" alt="search"></a>
+                            <a href="search.php" class="nav-item-link">Search <img class="search-icon"
+                                    src="./assets/images/icons/search.png" alt="search"></a>
                         </div>
                     </div>
                     <div class="group">

@@ -9,6 +9,7 @@
     
     ?>
 
+
     <div class="entity-info">
         <div class="left-section">
             <img src="<?php echo $album->getArtWorkPath()?>" alt="">
@@ -29,15 +30,21 @@
                     foreach($songIdArray as $songId){
                         $albumSong = new Song($conn, $songId);
                         $albumArtist = $albumSong->getArtist();
-                        echo "<li class='track-list-row'>
-                            </div class='track-count'>
+                        echo "
+                        <li class='track-list-row'>
+                            <div class='track-count'>
                             <img class='play' src='assets/images/icons/play-white.png'>
                                 <span class='track-number'>$i</span>
                             </div>
-                            <div class='track-infor'>
+                            <div class='track-infos'>
                                 <span class='track-name'>" . $albumSong->getTitle() . "</span>
                                 <span class='artist-name'>" . $albumArtist->getName() . "</span>
-
+                            </div>
+                            <div class='track-options'>
+                                <img class='option-button' src='assets/images/icons/more.png'>
+                            </div>
+                            <div class='track-duration'>
+                                <span class='duration'>". $albumSong->getDuration()."</span>
                             </div>
                         </li>";
                         $i++;

@@ -300,3 +300,86 @@ body{
     
     display: inline-block;
 }
+
+
+.track-list{
+    padding:0;
+}
+
+.track-list-row{
+    height:44px;
+    padding: 15px 10px;
+}
+
+.track-list-row{
+    color:#939393;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    padding: 5px 12px;
+}
+
+.track-list-row:hover{
+    cursor: pointer;
+    background-color:#302f2f;
+}
+
+.track-list-row .track-count{
+    width: 8%;
+    float: left;
+}
+
+.track-list-row .track-count img{
+    margin-left:4px;
+    width: 20px;
+    position: absolute;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.track-list-row:hover .track-count img{
+    visibility:visible;
+
+}
+
+.track-list-row:hover .track-count span{
+    visibility:hidden;
+}
+
+.track-list-row .track-infos{
+    width: 75%;
+    float: left;
+}
+
+.track-list-row .track-infos .track-name{
+    color: #fff;
+    margin-bottom: 7px;
+    font-weight: 450;
+}
+
+.track-infos span{
+    display: block;
+}
+
+.track-list-row .track-options{
+    float: left;
+    text-align: right;
+    width: 5%;
+}
+
+.track-list-row .track-options img{
+    width: 15px;
+    visibility: hidden;
+}
+
+.track-list-row:hover .track-options img{
+    visibility: visible;
+
+}
+
+
+.track-list-row .track-duration{
+    width: 12%;
+    float:left;
+    text-align:right;
+}

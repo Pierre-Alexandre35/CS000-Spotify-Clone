@@ -19,10 +19,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/style.css">
+    <src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="assets/scripts/script.js"></script>
     <title>Document</title>
 </head>
-
 <body>
+    <script>
+        var audioElement = new Audio();
+        audioElement.setTrack("./assets/music/coup_de_folie.mp3");
+        var promise = audioElement.audio.play();
+        if (promise !== undefined) {
+            promise.then(_ => {}).catch(error => {});
+        }       
+
+    </script>
+
     <div id="main-container">
         <div id="top-container">
         <?php include("includes/navbar.php")?>

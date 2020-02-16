@@ -70,6 +70,10 @@
     display:none;
 }
 
+.play{
+    display:inline-block;
+}
+
 .playback-bar{
     display:flex;
 }

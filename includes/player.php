@@ -11,7 +11,108 @@
     ?>
 
     <script>
-        console.log(<?php echo $jsonArray ?>);
+
+
+        $(document).ready(function(){
+            currentPlaylist = <?php echo $jsonArray ?>;
+            audioElement = new Audio();
+            setTrack(currentPlaylist[0], currentPlaylist, false)
+
+            $("#now-playing-bar-container").on("mousedown touchstart mousemove touchmove", function(e){
+                e.preventDefault();
+            });
+
+
+            
+
+            $(".playback-bar .progress-bar").mousedown(function(){
+                mouseDown = true;
+            });
+
+            $(".playback-bar .progress-bar").mousemove(function(e){
+                if(mouseDown == true){
+                    timeFromOffset(e, this);
+                }
+            });
+
+            $(".playback-bar .progress-bar").mouseup(function(e){
+                    timeFromOffset(e, this);
+            });
+
+            $(".volume-bar .progress-bar").mousedown(function(){
+                mouseDown = true;
+            });
+
+            $(".volume-bar .progress-bar").mousemove(function(e){
+                if(mouseDown == true){
+                    var percentage = e.offsetX / $(this).width();
+                    if(percentage >= 0 && percentage <= 1){
+                        audioElement.audio.volume = percentage;
+                    }                
+                }
+            });
+
+            $(".volume-bar .progress-bar").mouseup(function(e){
+                var percentage = e.offsetX / $(this).width();
+                    if(percentage >= 0 && percentage <= 1){
+                        audioElement.audio.volume = percentage;
+                    }
+            });
+
+
+            $(document).mouseup(function(){
+                mousedown = false;
+            })
+        });
+
+        function timeFromOffset(mouse, progressbar){
+            var percentage = mouse.offsetX / $(progressbar).width() * 100;
+            var seconds = audioElement.audio.duration * (percentage / 100);
+            audioElement.setTime(seconds);
+        }
+
+        function setTrack(trackId, newPlaylist, play){
+            // First parameter: url of the ajax
+            // Second (optional): data to send as JSON
+            // Last(optional): what to do with the result
+            $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data){
+                var track = JSON.parse(data);
+                $(".track-name span").text(track.title)
+
+                $.post("includes/handlers/ajax/getArtistJson.php", {artistId : track.artist}, function(data){
+                    var artist = JSON.parse(data);
+                    $(".artist-name span").text(artist.name);
+                });
+
+                $.post("includes/handlers/ajax/getAlbumJson.php", {albumId : track.album}, function(data){
+                    var album_artwork = JSON.parse(data);
+                    console.log(album_artwork);
+                    $(".album-link img").attr("src", album_artwork.artworkPath);
+                });
+
+                audioElement.setTrack(track);
+
+            });
+        }
+
+        function playSong(){
+
+            if(audioElement.audio.currentTime == 0){
+                $.post("includes/handlers/ajax/updatePlays.php", {
+                    songId: audioElement.currentPlaying.id
+                });
+            }
+            audioElement.play();
+            document.querySelector(".pause").style.display="inline-block";
+            document.querySelector(".play").style.display="none";
+
+        }
+
+        function pauseSong(){
+            audioElement.pause();
+            document.querySelector(".play").style.display="inline-block";
+            document.querySelector(".pause").style.display="none";
+        }
     </script>
 
 
@@ -45,10 +146,11 @@
                                 <img src="./assets/images/icons/previous.png" alt="previous">
                             </button>
                             <button class="control-button play">
-                                <img src="./assets/images/icons/play.png" alt="play">
+                                <img src="./assets/images/icons/play.png" alt="play" 
+                                onclick="playSong()">
                             </button>
                             <button class="control-button pause">
-                                <img src="./assets/images/icons/pause.png" alt="pause">
+                                <img src="./assets/images/icons/pause.png" alt="pause" onclick="pauseSong()">
                             </button>
                             <button class="control-button next">
                                 <img src="./assets/images/icons/next.png" alt="next">

@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function(){
     wantRegister.addEventListener("click", e =>{
         e.preventDefault();
         loginForm.style.display="none";
-        registerForm.style.display="block";
+        registerForm.style.display="inline-block";
     });
 
     wantLogin.addEventListener("click", e =>{
         e.preventDefault();
-        loginForm.style.display="block";
+        loginForm.style.display="inline-block";
         registerForm.style.display="none";
     });
 

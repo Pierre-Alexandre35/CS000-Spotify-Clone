@@ -71,7 +71,60 @@
             audioElement.setTime(seconds);
         }
 
+
+        function previousSong(){
+            // go to the previous song
+            if(audioElement.audio.currentTime >= 3 || currentIndex == 0){
+                audioElement.setTime(0);
+            } else {
+                currentIndex = currentIndex - 1;
+            }
+        }
+
+        function nextSong(){
+            if(repeat == true){
+                audioElement.setTime(0);
+                playSong();
+                return;
+            }
+            if(currentIndex == currentPlaylist.length - 1){
+                currentIndex = 0;
+            } else {
+                currentIndex = currentIndex + 1;
+            }
+
+            var trackToPlay = currentPlaylist[currentIndex];
+            setTrack(trackToPlay, currentPlaylist, true);
+        }
+
+
+        function setRepeat(){
+            repeat = !repeat;
+            if(repeat){
+                var imageName = "./assets/images/icons/repeat-active.png";
+            } else {
+                var imageName = "./assets/images/icons/repeat.png";
+
+            }
+            $(".control-button .repeat img").attr("src",imageName);
+        }
+
+        function setMute(){
+            audioElement.audio.muted = !audioElement.audio.muted;
+            if(audioElement.audio.muted){
+                var imageName = "./assets/images/icons/volume-mute.png";
+            } else {
+                var imageName = "./assets/images/icons/volume.png";
+
+            }
+            $(".control-button .repeat img").attr("src",imageName);
+        }
+        
+
         function setTrack(trackId, newPlaylist, play){
+
+            currentIndex = currentPlaylist.indexOf(trackId);
+
             // First parameter: url of the ajax
             // Second (optional): data to send as JSON
             // Last(optional): what to do with the result
@@ -86,7 +139,6 @@
 
                 $.post("includes/handlers/ajax/getAlbumJson.php", {albumId : track.album}, function(data){
                     var album_artwork = JSON.parse(data);
-                    console.log(album_artwork);
                     $(".album-link img").attr("src", album_artwork.artworkPath);
                 });
 
@@ -142,7 +194,7 @@
                             <button class="control-button shuffle">
                                 <img src="./assets/images/icons/shuffle.png" alt="shuffle">
                             </button>
-                            <button class="control-button previous">
+                            <button class="control-button previous" onclick="previousSong()">
                                 <img src="./assets/images/icons/previous.png" alt="previous">
                             </button>
                             <button class="control-button play">
@@ -152,10 +204,10 @@
                             <button class="control-button pause">
                                 <img src="./assets/images/icons/pause.png" alt="pause" onclick="pauseSong()">
                             </button>
-                            <button class="control-button next">
+                            <button class="control-button next" onclick="nextSong()">
                                 <img src="./assets/images/icons/next.png" alt="next">
                             </button>
-                            <button class="control-button repeat">
+                            <button class="control-button repeat" onclick="setRepeat()">
                                 <img src="./assets/images/icons/repeat.png" alt="repeat">
                             </button>
 
@@ -173,7 +225,7 @@
                 </div>
                 <div id="now-playing-right">
                     <div class="volume-bar">
-                        <button class="control-button volume" title="volume button">
+                        <button class="control-button volume" title="volume button" onclick="setMute()">
                             <img src="./assets/images/icons/volume.png" alt="volume">
                         </button>
                         <div class="progress-bar">

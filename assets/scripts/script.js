@@ -1,7 +1,8 @@
 var audioElement;
 var currentPlaylist = [];
 var mouseDown = false;
-
+var currentIndex = 0;
+var repeat = false;
 
 
 function formatTime(seconds){
@@ -20,6 +21,8 @@ function formatTime(seconds){
     return minutes + ":" + extraZero + seconds;
 
 }
+
+
 
 function updateTimeProgressBar(audio){
     $(".progress-time.current").text(formatTime(audio.currentTime));
@@ -42,9 +45,12 @@ function Audio(){
     this.currentPlaying;
     this.audio = document.createElement('audio');
 
+    this.audio.addEventListener("ended", function(){
+        nextSong();
+    });
+
     this.audio.addEventListener("canplay", function(){
         $(".progress-time.remaining").text(formatTime(this.duration));
-        console.log(this.duration);
     });
 
     this.audio.addEventListener("timeupdate", function(){

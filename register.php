@@ -21,7 +21,7 @@
 
 <head>
     <link rel="stylesheet" href="./assets/register.css">
-    <title>Welcome to Spotify</title>
+    <title>Welcome to Musikoo.xyz</title>
 </head>
 
 <body>

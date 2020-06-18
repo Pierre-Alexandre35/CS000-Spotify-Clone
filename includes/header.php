@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <script src="assets/scripts/script.js"></script>
-    <title>Document</title>
+    <title>Musikoo | Online music player</title>
 </head>
 <body>
     <script>

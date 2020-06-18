@@ -19,6 +19,9 @@
                         <div class="nav-item">
                             <a href="profile.php" class="nav-item-link">Profile</a>
                         </div>
+                        <div class="nav-item">
+                            <a href="logout.php" class="nav-item-link">Log Out</a>
+                        </div>
                     </div>
 
                 </nav>

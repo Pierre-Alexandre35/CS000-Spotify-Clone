@@ -105,7 +105,7 @@
                 </form>
             </div>
             <div id="loginText">
-                <h1>Get Great Music, Right Now!</h1>
+                <h1>Musikoo - Get Great Music, Right Now!</h1>
                 <h2>Listen To Loads Of Songs For Free</h2>
                 <ul>
                     <li>Discover More Than 30,000 Songs</li>

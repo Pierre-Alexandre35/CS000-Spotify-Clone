@@ -3,7 +3,17 @@ var currentPlaylist = [];
 var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
+var tempPlaylist = []
+var userLoggedIn;
 
+function openPage(url){
+    if(url.indexOf("?") == -1){
+        url = url + "?";
+    }
+    var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+    $("#main-content").load(encodedUrl);
+
+}
 
 function formatTime(seconds){
     var time = Math.round(seconds);
@@ -21,6 +31,7 @@ function formatTime(seconds){
     return minutes + ":" + extraZero + seconds;
 
 }
+
 
 
 

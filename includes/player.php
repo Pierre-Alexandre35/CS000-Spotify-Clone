@@ -106,18 +106,19 @@
                 var imageName = "./assets/images/icons/repeat.png";
 
             }
-            $(".control-button .repeat img").attr("src",imageName);
+            $(".repeat  img").attr("src",imageName);
         }
 
         function setMute(){
             audioElement.audio.muted = !audioElement.audio.muted;
+            
             if(audioElement.audio.muted){
                 var imageName = "./assets/images/icons/volume-mute.png";
             } else {
                 var imageName = "./assets/images/icons/volume.png";
 
             }
-            $(".control-button .repeat img").attr("src",imageName);
+            $(".volume img").attr("src",imageName);
         }
         
 
@@ -156,13 +157,12 @@
             }
             audioElement.play();
             document.querySelector(".pause").style.display="inline-block";
-            document.querySelector(".play").style.display="none";
-
+            document.querySelector(".main-play").style.display="none";
         }
 
         function pauseSong(){
             audioElement.pause();
-            document.querySelector(".play").style.display="inline-block";
+            document.querySelector(".main-play").style.display="inline-block";
             document.querySelector(".pause").style.display="none";
         }
     </script>
@@ -197,7 +197,7 @@
                             <button class="control-button previous" onclick="previousSong()">
                                 <img src="./assets/images/icons/previous.png" alt="previous">
                             </button>
-                            <button class="control-button play">
+                            <button class="control-button play main-play">
                                 <img src="./assets/images/icons/play.png" alt="play" 
                                 onclick="playSong()">
                             </button>

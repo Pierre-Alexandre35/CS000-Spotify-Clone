@@ -28,6 +28,11 @@
         $this->albumOrder = $this->song['albumOrder'];
         $this->plays = $this->song['plays'];
     }
+
+    public function getId(){
+        return $this->id;
+    }
+    
     public function getTitle(){
         return $this->title;
     }

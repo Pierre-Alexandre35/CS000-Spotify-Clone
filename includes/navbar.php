@@ -1,8 +1,8 @@
             <div id="navbar-container">
                 <nav class="navbar">
-                    <a class="logo" href="index.php">
+                    <span class="logo" onclick="openPage('index.php')">
                         <img src="./assets/images/logo.png" alt="logo">
-                    </a>
+                    </span>
                     <div class="group group-top">
                         <div class="nav-item">
                             <a href="search.php" class="nav-item-link">Search <img class="search-icon"

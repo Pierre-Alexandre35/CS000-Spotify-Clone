@@ -7,6 +7,7 @@
 
     if(isset($_SESSION['userLoggedIn'])){
         $userLoggedIn = $_SESSION['userLoggedIn'];
+        echo "<script>" . $userLoggedIn . "</script>";
     } else {
         header("Location: register.php");
     }
@@ -19,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/style.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <script src="assets/scripts/script.js"></script>
     <title>Document</title>
 </head>
